@@ -399,7 +399,7 @@ public class KeyboardView extends LinearLayout {
             mHintColor = typedArray.getColor(R.styleable.KeyboardView_textHintColor, NO_VALUE);
             mIsBold = typedArray.getBoolean(R.styleable.KeyboardView_boldText, false);
             mKeyboardType = typedArray.getInt(R.styleable.KeyboardView_keyboardType, KEYBOARD_TYPE_NUMBER);
-            mTxtFont = typedArray.getInt(R.styleable.CustomKeyboard_font, -1);
+            mTxtFont = -1;//typedArray.getInt(R.styleable.CustomKeyboard_font, -1);
         } finally {
             typedArray.recycle();
         }
