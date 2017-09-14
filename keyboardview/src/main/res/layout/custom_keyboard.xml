@@ -136,14 +136,6 @@
             android:textColor="@android:color/white"
             android:textSize="30dp" />
 
-        <ImageView
-            android:id="@+id/finger"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:scaleType="center" />
-
         <TextView
             android:id="@+id/zero"
             android:layout_width="0dp"

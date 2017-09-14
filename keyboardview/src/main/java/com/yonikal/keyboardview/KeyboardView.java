@@ -42,7 +42,6 @@ public class KeyboardView extends LinearLayout {
     private TextView mNine;
     private TextView mZero;
     private TextView mDot;
-    private View mFinger;
     private LinearLayout mDelete;
     private LinearLayout mContainer;
     private TextView mTextView;
@@ -137,7 +136,6 @@ public class KeyboardView extends LinearLayout {
         mDot = (TextView) findViewById(R.id.dot);
         mKeyboardTextViews.add(mDot);
         mDelete = (LinearLayout) findViewById(R.id.delete);
-        mFinger = findViewById(R.id.finger);
 
         assignClickListener();
 
@@ -317,9 +315,6 @@ public class KeyboardView extends LinearLayout {
         }
         mDelete.setClickable(false);
         mDelete.setOnClickListener(null);
-
-        mFinger.setClickable(false);
-        mFinger.setOnClickListener(null);
     }
 
     public void bindTo(ArrayList<Tuple<TextView, Integer>> textViews) {
@@ -415,16 +410,12 @@ public class KeyboardView extends LinearLayout {
             mContainer.setBackgroundColor(mBgColor);
         }
 
-        switch(mKeyboardType){
+        switch (mKeyboardType) {
             case KEYBOARD_TYPE_DECIMAL:
-                mFinger.setClickable(false);
-                mFinger.setVisibility(GONE);
                 mDot.setClickable(true);
                 mDot.setVisibility(VISIBLE);
                 break;
             default:
-                mFinger.setClickable(false);
-                mFinger.setVisibility(GONE);
                 mDot.setClickable(false);
                 mDot.setVisibility(INVISIBLE);
                 break;
