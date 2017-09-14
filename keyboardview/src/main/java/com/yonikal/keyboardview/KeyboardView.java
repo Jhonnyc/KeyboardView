@@ -57,7 +57,6 @@ public class KeyboardView extends LinearLayout {
     private float mTextSize = -1;
     private int mColor;
     private boolean mHintDisplay;
-    private boolean mSecretMode;
     private int mRootIndex = 0;
     private int mInnerIndex = 0;
     private String mHint;
@@ -164,9 +163,6 @@ public class KeyboardView extends LinearLayout {
                     } else {
                         final TextView textView = mTextView;
                         textView.setText(textView.getText().toString() + ((TextView) v).getText().toString());
-//                        if (mSecretMode) {
-//                            AnimationUtilities.pinCodeHidden(textView);
-//                        }
                     }
                 }
             }
@@ -319,13 +315,6 @@ public class KeyboardView extends LinearLayout {
 
     public void bindTo(ArrayList<Tuple<TextView, Integer>> textViews) {
         mTextViewList = textViews;
-        bindTo(mTextViewList.get(mRootIndex).textView);
-        mInnerIndex = mTextViewList.get(mRootIndex).textView.getText().length();
-    }
-
-    public void bindTo(ArrayList<Tuple<TextView, Integer>> textViews, boolean isSecretMode) {
-        mTextViewList = textViews;
-        mSecretMode = isSecretMode;
         bindTo(mTextViewList.get(mRootIndex).textView);
         mInnerIndex = mTextViewList.get(mRootIndex).textView.getText().length();
     }
