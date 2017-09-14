@@ -2,10 +2,13 @@ package com.yonikal.keyboardview;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -413,29 +416,33 @@ public class KeyboardView extends LinearLayout {
         //setTextViewsStyles(mContainer, mTextSize, mColor);
     }
 
-//    private void setTextViewsStyles(ViewGroup view, float size, int color) {
-//        for (int i = 0; i < view.getChildCount(); i++) {
-//            View v = view.getChildAt(i);
-//            if (v instanceof TextView) {
-//                if (size > -1) {
-//                    ((TextView) v).setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
-//                }
-//                if (color != NO_VALUE) {
-//                    ((TextView) v).setTextColor(mColor);
-//                }
-//                if (mIsBold && FontText.isValidEnum(mTxtFont)) {
-//                    Typeface face = FontManager.get(FontText.nameFromId(mTxtFont), getContext());
-//                    ((TextView) v).setTypeface(face, Typeface.BOLD);
-//                } else if (FontText.isValidEnum(mTxtFont)) {
-//                    FontManager.setCustomFont(((FontableTextView) v), FontText.nameFromId(mTxtFont), getContext());
-//                } else if (mIsBold) {
-//                    ((TextView) v).setTypeface(null, Typeface.BOLD);
-//                }
-//            } else if (v instanceof ViewGroup) {
-//                setTextViewsStyles((ViewGroup) v, mTextSize, mColor);
-//            }
-//        }
-//    }
+    private void setTextViewsStyles(ViewGroup view, float size, int color) {
+        for (int i = 0; i < view.getChildCount(); i++) {
+            View v = view.getChildAt(i);
+            if (v instanceof TextView) {
+                if (size > -1) {
+                    ((TextView) v).setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
+                }
+                if (color != NO_VALUE) {
+                    ((TextView) v).setTextColor(mColor);
+                }
+                if (mIsBold) {//
+
+                    ((TextView) v).setTypeface(null, Typeface.BOLD);
+                }
+
+                //else if (FontText.isValidEnum(mTxtFont)) {
+                //    FontManager.setCustomFont(((FontableTextView) v), FontText.nameFromId(mTxtFont), getContext());
+                //}
+                //else if (mIsBold && FontText.isValidEnum(mTxtFont)) {
+                //    Typeface face = FontManager.get(FontText.nameFromId(mTxtFont), getContext());
+                //    ((TextView) v).setTypeface(face, Typeface.BOLD);
+                //}
+            } else if (v instanceof ViewGroup) {
+                setTextViewsStyles((ViewGroup) v, mTextSize, mColor);
+            }
+        }
+    }
 
     public interface ICustomKeyPress {
         void firstKeyEnter();
