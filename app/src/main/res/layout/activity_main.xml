@@ -21,7 +21,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="#e1e1e1"
+        android:background="#9c9a9a"
         android:layout_weight="2">
 
         <com.yonikal.keyboardview.KeyboardView
